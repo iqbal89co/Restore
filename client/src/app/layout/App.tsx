@@ -12,7 +12,6 @@ import { useAppSelector } from "../store/store";
 function App() {
   const { darkMode } = useAppSelector((state) => state.ui);
   const palletteType = darkMode ? "dark" : "light";
-  console.log(palletteType);
 
   const theme = createTheme({
     palette: {
