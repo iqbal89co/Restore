@@ -35,7 +35,7 @@ public class AccountController(SignInManager<User> signInManager) : BaseApiContr
     [HttpGet("user-info")]
     public async Task<ActionResult> GetUserInfo()
     {
-        if (User.Identity.IsAuthenticated == false)
+        if (User.Identity == null || User.Identity.IsAuthenticated == false)
             return NoContent();
 
         var user = await signInManager.UserManager.GetUserAsync(User);
