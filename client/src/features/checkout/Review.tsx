@@ -8,7 +8,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { currencyFormat } from "../../lib/util";
+import { currencyFormat, formatPaymentString } from "../../lib/util";
 import { ConfirmationToken } from "@stripe/stripe-js";
 import { useBasket } from "../../lib/hooks/useBasket";
 
@@ -29,9 +29,7 @@ export default function Review({ confirmationToken }: Props) {
     if (!confirmationToken?.payment_method_preview.card) return "";
     const { card } = confirmationToken.payment_method_preview;
 
-    return `${card.brand.toUpperCase()}, **** **** **** ${card.last4}, Exp: ${
-      card.exp_month
-    }/${card.exp_year}`;
+    return formatPaymentString(card);
   };
 
   return (
