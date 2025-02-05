@@ -19,7 +19,7 @@ export default function BasketPage() {
         ))}
       </Grid2>
       <Grid2 size={4}>
-        <OrderSummary basket={data} />
+        <OrderSummary />
       </Grid2>
     </Grid2>
   );
